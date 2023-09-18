@@ -24,7 +24,11 @@
 					label="生产日期"
 					prop="date"
 				>
-					<el-input v-model="rowDataForm.date" />
+					<el-date-picker
+						v-model="rowDataForm.date"
+						type="date"
+						:size="size"
+					/>
 				</el-form-item>
 				<el-form-item
 					label="生产地址"

@@ -47,9 +47,10 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, inject } from 'vue';
 import Detail from './components/detail.vue';
 import Edit from './components/edit.vue';
+const $dayjs = inject('$dayjs');
 const mockData = {
 	list: [
 		{
@@ -77,7 +78,7 @@ const handleUpdateRowData = (newData) => {
 	const target = stateTableData.value.find((item) => item.id === id);
 	if (target) {
 		target.name = name;
-		target.date = date;
+		target.date = $dayjs(date).format('YYYY-MM-DD');
 		target.address = address;
 	}
 };
