@@ -1,0 +1,22 @@
+{
+  "code": 0,
+  "type": "adminMenu",
+  "data": [
+    {
+      "id": 1,
+      "name": "海康采集站",
+      "date": "2029-10-10",
+      "totalCapacity": 2199023255552,
+      "usedCapacity": 1199023255552,
+      "address": "中国上海长宁区"
+    },
+    {
+      "id": 2,
+      "name": "海康采集站",
+      "date": "2029-10-10",
+      "totalCapacity": 2199023255552,
+      "usedCapacity": 1109023255552,
+      "address": "中国上海长宁区"
+    }
+  ]
+}

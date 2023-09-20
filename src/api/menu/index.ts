@@ -10,11 +10,11 @@ import request from '/@/utils/request';
  * @method getAdminMenu 获取后端动态路由菜单(admin)
  * @method getTestMenu 获取后端动态路由菜单(test)
  */
-export function useMenuApi() {
+export function useMenuApi () {
 	return {
 		getAdminMenu: (params?: object) => {
 			return request({
-				url: '/gitee/lyt-top/vue-next-admin-images/raw/master/menu/adminMenu.json',
+				url: '/adminMenu',
 				method: 'get',
 				params,
 			});

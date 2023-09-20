@@ -68,37 +68,31 @@
 </template>
 
 <script setup>
-import { ref, inject } from 'vue';
+import { ref, inject, onBeforeMount } from 'vue';
 import { getfilesize } from '/@/utils/toolsOther.ts';
 import Detail from './components/detail.vue';
 import Edit from './components/edit.vue';
 import Setting from './components/setting.vue';
+import { resourceMgtApi } from '/@/api/resource/index.ts';
+// import { storeToRefs } from 'pinia';
+// import { userInfo2 } from '/@/stores/userInfo2.ts'; // TODO 这种引入方式不对
 const $dayjs = inject('$dayjs');
-const mockData = {
-	list: [
-		{
-			id: 1,
-			name: '海康采集站',
-			date: '2029-10-10',
-			totalCapacity: 2199023255552,
-			usedCapacity: 1199023255552,
-			address: '中国上海长宁区',
-		},
-		{
-			id: 2,
-			name: '海康采集站',
-			date: '2029-10-10',
-			totalCapacity: 2199023255552,
-			usedCapacity: 1109023255552,
-			address: '中国上海长宁区',
-		},
-	],
-};
-const stateTableData = ref(mockData.list);
+const getResourceApi = resourceMgtApi();
+const stateTableData = ref(null);
 const detailRef = ref(null);
 const editRef = ref(null);
 const settingRef = ref(null);
 
+// const testStore = userInfo2();
+// const { counter, doubleCounter } = storeToRefs(testStore);
+// const { increaseCounter } = testStore;
+const getLists = () => {
+	getResourceApi.getResource().then((res) => {
+		if (res.code === 0) {
+			stateTableData.value = res.data;
+		}
+	});
+};
 const handleDetail = (rowData) => {
 	detailRef.value.openAction(rowData);
 };
@@ -127,6 +121,9 @@ const handleUpdateSetting = (settingData) => {
 		target.totalCapacity = parseFloat(stateTableData.value.totalCapacity);
 	}
 };
+onBeforeMount(() => {
+	getLists();
+});
 
 /**
  * 提取列表字段，凑成对象，这个对象决定了编辑，详情显示的内容

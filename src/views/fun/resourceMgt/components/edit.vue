@@ -51,7 +51,10 @@
 
 <script setup>
 import { ref, reactive } from 'vue';
+import { resourceMgtApi } from '/@/api/resource/index.ts';
+
 const emit = defineEmits(['updateRowData']);
+const resourceApi = resourceMgtApi();
 const rowDataFormRef = ref(null);
 const detailVisible = ref(false);
 const direction = ref('rtl');
@@ -80,6 +83,11 @@ const submitForm = async (form) => {
 	if (!form) return;
 	await form.validate((valid, fields) => {
 		if (valid) {
+			const { id, name, date, address } = rowDataForm.value;
+			const params = { id, name, date, address };
+			resourceApi.save(params).then((res) => {
+				console.log('🚀 ~ file: edit.vue:91 ~ resourceApi.save ~ res:', res);
+			});
 			emit('updateRowData', rowDataForm);
 			toggleDrawerVisible(false);
 		} else {
