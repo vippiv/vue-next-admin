@@ -17,6 +17,12 @@
 				label="生产地址"
 			/>
 			<el-table-column
+				prop="totalCapacity"
+				label="产品容量"
+			>
+				<template #default="scope"> {{ getfilesize(scope.row.usedCapacity, 'G') }} / {{ getfilesize(scope.row.totalCapacity, 'G') }} </template>
+			</el-table-column>
+			<el-table-column
 				fixed="right"
 				label="操作"
 			>
@@ -35,21 +41,38 @@
 						@click="handleEdit(scope.row)"
 						>编辑</el-button
 					>
+					<el-button
+						link
+						type="primary"
+						size="small"
+						@click="handleSetting(scope.row)"
+						>修改配置</el-button
+					>
 				</template>
 			</el-table-column>
 		</el-table>
+		<el-pagination
+			layout="prev, pager, next"
+			:total="1000"
+		/>
 		<detail ref="detailRef"></detail>
 		<edit
 			ref="editRef"
 			@updateRowData="handleUpdateRowData"
 		></edit>
+		<setting
+			ref="settingRef"
+			@updateSetting="handleUpdateSetting"
+		></setting>
 	</div>
 </template>
 
 <script setup>
 import { ref, inject } from 'vue';
+import { getfilesize } from '/@/utils/toolsOther.ts';
 import Detail from './components/detail.vue';
 import Edit from './components/edit.vue';
+import Setting from './components/setting.vue';
 const $dayjs = inject('$dayjs');
 const mockData = {
 	list: [
@@ -57,6 +80,16 @@ const mockData = {
 			id: 1,
 			name: '海康采集站',
 			date: '2029-10-10',
+			totalCapacity: 2199023255552,
+			usedCapacity: 1199023255552,
+			address: '中国上海长宁区',
+		},
+		{
+			id: 2,
+			name: '海康采集站',
+			date: '2029-10-10',
+			totalCapacity: 2199023255552,
+			usedCapacity: 1109023255552,
 			address: '中国上海长宁区',
 		},
 	],
@@ -64,6 +97,7 @@ const mockData = {
 const stateTableData = ref(mockData.list);
 const detailRef = ref(null);
 const editRef = ref(null);
+const settingRef = ref(null);
 
 const handleDetail = (rowData) => {
 	detailRef.value.openAction(rowData);
@@ -71,6 +105,10 @@ const handleDetail = (rowData) => {
 const handleEdit = (rowData) => {
 	editRef.value.openAction(rowData);
 	console.log('🚀 ~ file: index.vue:64 ~ handleEdit ~ detailRef:', detailRef);
+};
+const handleSetting = (rowData) => {
+	settingRef.value.openAction(rowData);
+	console.log('🚀 ~ file: index.vue:93 ~ handleSetting ~ rowData:', rowData);
 };
 const handleUpdateRowData = (newData) => {
 	console.log('🚀 ~ file: index.vue:75 ~ handleUpdateRowData ~ newData:', newData.value);
@@ -82,8 +120,33 @@ const handleUpdateRowData = (newData) => {
 		target.address = address;
 	}
 };
+const handleUpdateSetting = (settingData) => {
+	console.log('🚀 ~ file: index.vue:124 ~ handleUpdateSetting ~ settingData:', settingData);
+	const target = stateTableData.value.find((item) => item.id === settingData.value.id);
+	if (target) {
+		target.totalCapacity = parseFloat(stateTableData.value.totalCapacity);
+	}
+};
+
 /**
  * 提取列表字段，凑成对象，这个对象决定了编辑，详情显示的内容
  * 详情和编辑就不需要写那么多dom
  */
 </script>
+
+<style lang="scss" scoped>
+.resource-mgt-container {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	:deep(.el-table) {
+		flex: 1;
+	}
+	:deep(.el-pagination) {
+		padding: 10px 0;
+		width: 100%;
+		justify-content: flex-end;
+		background-color: white;
+	}
+}
+</style>

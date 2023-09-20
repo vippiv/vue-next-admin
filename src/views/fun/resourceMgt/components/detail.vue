@@ -19,6 +19,7 @@
 import { ref } from 'vue';
 const detailVisible = ref(false);
 const detailData = ref(null);
+const direction = ref('rtl');
 const openAction = (data) => {
 	toggleDrawerVisible(true);
 	detailData.value = data;
