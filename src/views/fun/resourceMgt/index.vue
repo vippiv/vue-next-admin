@@ -1,60 +1,67 @@
 <template>
-	<div class="resource-mgt-container">
-		<el-table
-			:data="stateTableData"
-			style="width: 100%"
-		>
-			<el-table-column
-				prop="name"
-				label="资源名称"
-			/>
-			<el-table-column
-				prop="date"
-				label="生产日期"
-			/>
-			<el-table-column
-				prop="address"
-				label="生产地址"
-			/>
-			<el-table-column
-				prop="totalCapacity"
-				label="产品容量"
+	<layout-list class="resource-mgt-container">
+		<template v-slot:headerAction>
+			<el-button type="primary">新增</el-button>
+		</template>
+		<template v-slot:tableContent>
+			<el-table
+				:data="stateTableData"
+				style="width: 100%"
 			>
-				<template #default="scope"> {{ getfilesize(scope.row.usedCapacity, 'G') }} / {{ getfilesize(scope.row.totalCapacity, 'G') }} </template>
-			</el-table-column>
-			<el-table-column
-				fixed="right"
-				label="操作"
-			>
-				<template #default="scope">
-					<el-button
-						link
-						type="primary"
-						size="small"
-						@click="handleDetail(scope.row)"
-						>详情</el-button
-					>
-					<el-button
-						link
-						type="primary"
-						size="small"
-						@click="handleEdit(scope.row)"
-						>编辑</el-button
-					>
-					<el-button
-						link
-						type="primary"
-						size="small"
-						@click="handleSetting(scope.row)"
-						>修改配置</el-button
-					>
-				</template>
-			</el-table-column>
-		</el-table>
-		<el-pagination
-			layout="prev, pager, next"
-			:total="1000"
-		/>
+				<el-table-column
+					prop="name"
+					label="资源名称"
+				/>
+				<el-table-column
+					prop="date"
+					label="生产日期"
+				/>
+				<el-table-column
+					prop="address"
+					label="生产地址"
+				/>
+				<el-table-column
+					prop="totalCapacity"
+					label="产品容量"
+				>
+					<template #default="scope"> {{ getfilesize(scope.row.usedCapacity, 'G') }} / {{ getfilesize(scope.row.totalCapacity, 'G') }} </template>
+				</el-table-column>
+				<el-table-column
+					fixed="right"
+					label="操作"
+				>
+					<template #default="scope">
+						<el-button
+							link
+							type="primary"
+							size="small"
+							@click="handleDetail(scope.row)"
+							>详情</el-button
+						>
+						<el-button
+							link
+							type="primary"
+							size="small"
+							@click="handleEdit(scope.row)"
+							>编辑</el-button
+						>
+						<el-button
+							link
+							type="primary"
+							size="small"
+							@click="handleSetting(scope.row)"
+							>修改配置</el-button
+						>
+					</template>
+				</el-table-column>
+			</el-table>
+		</template>
+		<template v-slot:pagination>
+			<el-pagination
+				layout="prev, pager, next"
+				:total="1000"
+			/>
+		</template>
 		<detail ref="detailRef"></detail>
 		<edit
 			ref="editRef"
@@ -64,7 +71,7 @@
 			ref="settingRef"
 			@updateSetting="handleUpdateSetting"
 		></setting>
-	</div>
+	</layout-list>
 </template>
 
 <script setup>
@@ -73,6 +80,7 @@ import { getfilesize } from '/@/utils/toolsOther.ts';
 import Detail from './components/detail.vue';
 import Edit from './components/edit.vue';
 import Setting from './components/setting.vue';
+import LayoutList from '/@/components/layout/list.vue';
 import { resourceMgtApi } from '/@/api/resource/index.ts';
 // import { storeToRefs } from 'pinia';
 // import { userInfo2 } from '/@/stores/userInfo2.ts'; // TODO 这种引入方式不对
@@ -133,17 +141,8 @@ onBeforeMount(() => {
 
 <style lang="scss" scoped>
 .resource-mgt-container {
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-	:deep(.el-table) {
-		flex: 1;
-	}
-	:deep(.el-pagination) {
-		padding: 10px 0;
-		width: 100%;
-		justify-content: flex-end;
-		background-color: white;
+	:deep(.list_header_action) {
+		text-align: right;
 	}
 }
 </style>

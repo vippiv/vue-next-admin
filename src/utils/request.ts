@@ -9,7 +9,7 @@ const service: AxiosInstance = axios.create({
 	timeout: 50000,
 	headers: { 'Content-Type': 'application/json' },
 	paramsSerializer: {
-		serialize(params) {
+		serialize (params) {
 			return qs.stringify(params, { allowDots: true });
 		},
 	},
@@ -41,8 +41,8 @@ service.interceptors.response.use(
 				Session.clear(); // 清除浏览器全部临时缓存
 				window.location.href = '/'; // 去登录页
 				ElMessageBox.alert('你已被登出，请重新登录', '提示', {})
-					.then(() => {})
-					.catch(() => {});
+					.then(() => { })
+					.catch(() => { });
 			}
 			return Promise.reject(service.interceptors.response);
 		} else {

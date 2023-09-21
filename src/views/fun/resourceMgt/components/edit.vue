@@ -52,7 +52,6 @@
 <script setup>
 import { ref, reactive } from 'vue';
 import { resourceMgtApi } from '/@/api/resource/index.ts';
-
 const emit = defineEmits(['updateRowData']);
 const resourceApi = resourceMgtApi();
 const rowDataFormRef = ref(null);

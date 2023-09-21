@@ -12,8 +12,8 @@ export function resourceMgtApi () {
         save: (params?: object) => {
             return request({
                 url: '/resource/save',
-                method: 'post', // TODO 请求有问题，发出去的根本不是post
-                params,
+                method: 'post',
+                data: params
             });
         }
     };
