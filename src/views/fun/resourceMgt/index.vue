@@ -1,7 +1,10 @@
 <template>
 	<layout-list class="resource-mgt-container">
+		<template v-slot:headerSearchBar>
+			<search-bar></search-bar>
+		</template>
 		<template v-slot:headerAction>
-			<el-button type="primary">新增</el-button>
+			<el-button>新增</el-button>
 		</template>
 		<template v-slot:tableContent>
 			<el-table
@@ -80,7 +83,6 @@ import { getfilesize } from '/@/utils/toolsOther.ts';
 import Detail from './components/detail.vue';
 import Edit from './components/edit.vue';
 import Setting from './components/setting.vue';
-import LayoutList from '/@/components/layout/list.vue';
 import { resourceMgtApi } from '/@/api/resource/index.ts';
 // import { storeToRefs } from 'pinia';
 // import { userInfo2 } from '/@/stores/userInfo2.ts'; // TODO 这种引入方式不对

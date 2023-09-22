@@ -1,84 +1,83 @@
 <template>
-	<div class="setting-container">
-		<el-dialog
-			v-model="dialogVisible"
-			title="配置"
-			width="30%"
-			:before-close="handleClose"
+	<el-dialog
+		v-model="dialogVisible"
+		title="配置"
+		width="30%"
+		class="setting-dialog"
+		:before-close="handleClose"
+	>
+		<el-form
+			ref="ruleFormRef"
+			:model="productPropertyForm"
+			label-width="120px"
+			:rules="rules"
 		>
-			<el-form
-				ref="ruleFormRef"
-				:model="productPropertyForm"
-				label-width="120px"
-				:rules="rules"
-			>
-				<el-form-item label="产品容量">
-					<div class="capacity">
-						<div>
-							<el-input-number
-								v-model="productPropertyForm.totalCapacity"
-								:min="1"
-								:max="99999"
-								controls-position="right"
-								size="default"
-								class="w100"
-							/>
-						</div>
-						<div class="unit">G</div>
+			<el-form-item label="产品容量">
+				<div class="capacity">
+					<div>
+						<el-input-number
+							v-model="productPropertyForm.totalCapacity"
+							:min="1"
+							:max="99999"
+							controls-position="right"
+							size="default"
+							class="w100"
+						/>
 					</div>
-				</el-form-item>
-				<el-form-item
-					label="操作原因"
-					prop="actionReason"
+					<div class="unit">G</div>
+				</div>
+			</el-form-item>
+			<el-form-item
+				label="操作原因"
+				prop="actionReason"
+			>
+				<el-select
+					v-model="productPropertyForm.actionReason"
+					placeholder="请选择操作原因"
+					size="default"
+					class="w100"
+					@change="handleChange"
 				>
-					<el-select
-						v-model="productPropertyForm.actionReason"
-						placeholder="请选择操作原因"
-						size="default"
-						class="w100"
-						@change="handleChange"
-					>
-						<el-option
-							v-for="item in actionReasonOps"
-							:key="item.value"
-							:label="item.label"
-							:value="item.value"
-						/>
-					</el-select>
-				</el-form-item>
-				<el-form-item
-					label="第三方"
-					prop="other"
-					v-if="productPropertyForm.actionReason == 2"
+					<el-option
+						v-for="item in actionReasonOps"
+						:key="item.value"
+						:label="item.label"
+						:value="item.value"
+					/>
+				</el-select>
+			</el-form-item>
+			<el-form-item
+				label="第三方"
+				prop="other"
+				v-if="productPropertyForm.actionReason == 2"
+			>
+				<el-select
+					v-model="productPropertyForm.other"
+					placeholder="请选择赠送的第三方"
+					size="default"
+					class="w100"
 				>
-					<el-select
-						v-model="productPropertyForm.other"
-						placeholder="请选择赠送的第三方"
-						size="default"
-						class="w100"
-					>
-						<el-option
-							v-for="item in otherOps"
-							:key="item.value"
-							:label="item.label"
-							:value="item.value"
-						/>
-					</el-select>
-				</el-form-item>
-			</el-form>
-			<template #footer>
-				<span class="dialog-footer">
-					<el-button @click="dialogVisible = false">取消</el-button>
-					<el-button
-						type="primary"
-						@click="submitForm(ruleFormRef)"
-					>
-						确定
-					</el-button>
-				</span>
-			</template>
-		</el-dialog>
-	</div>
+					<el-option
+						v-for="item in otherOps"
+						:key="item.value"
+						:label="item.label"
+						:value="item.value"
+					/>
+				</el-select>
+			</el-form-item>
+		</el-form>
+		<template #footer>
+			<span class="dialog-footer">
+				<el-button @click="dialogVisible = false">取消</el-button>
+				<el-button
+					type="primary"
+					@click="submitForm(ruleFormRef)"
+				>
+					确定
+				</el-button>
+			</span>
+		</template>
+	</el-dialog>
 </template>
 
 <script setup>

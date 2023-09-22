@@ -10,11 +10,12 @@ import other from '/@/utils/other';
 import ElementPlus from 'element-plus';
 import '/@/theme/index.scss';
 import VueGridLayout from 'vue-grid-layout';
+import component from './components/index'
 
 const app = createApp(App);
-app.provide('$dayjs', dayjs);
+app.provide('$dayjs', dayjs); // 定义全局方法
 
 directive(app);
 other.elSvg(app);
 
-app.use(pinia).use(router).use(ElementPlus).use(i18n).use(VueGridLayout).mount('#app');
+app.use(pinia).use(router).use(ElementPlus).use(i18n).use(VueGridLayout).use(component).mount('#app');

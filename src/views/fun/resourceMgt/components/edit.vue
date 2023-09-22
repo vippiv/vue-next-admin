@@ -1,57 +1,60 @@
 <template>
-	<div class="edit-container">
-		<el-drawer
-			v-model="detailVisible"
-			title="编辑"
-			:direction="direction"
-			:before-close="handleClose"
-		>
-			<el-form
-				ref="rowDataFormRef"
-				:model="rowDataForm"
-				status-icon
-				:rules="rules"
-				label-width="120px"
-				class="demo-rowDataForm"
-			>
-				<el-form-item
-					label="资源名称"
-					prop="name"
+	<el-drawer
+		v-model="detailVisible"
+		title="编辑"
+		class="resource-edit"
+		:direction="direction"
+		:before-close="handleClose"
+	>
+		<layout-drawer>
+			<template v-slot:drawContent>
+				<el-form
+					ref="rowDataFormRef"
+					:model="rowDataForm"
+					status-icon
+					:rules="rules"
+					label-width="120px"
+					class="demo-rowDataForm"
 				>
-					<el-input v-model="rowDataForm.name" />
-				</el-form-item>
-				<el-form-item
-					label="生产日期"
-					prop="date"
-				>
-					<el-date-picker
-						v-model="rowDataForm.date"
-						type="date"
-						:size="size"
-					/>
-				</el-form-item>
-				<el-form-item
-					label="生产地址"
-					prop="address"
-				>
-					<el-input v-model="rowDataForm.address" />
-				</el-form-item>
-				<el-form-item>
-					<el-button
-						type="primary"
-						@click="submitForm(rowDataFormRef)"
-						>提交</el-button
+					<el-form-item
+						label="资源名称"
+						prop="name"
 					>
-					<el-button @click="cancelForm">取消</el-button>
-				</el-form-item>
-			</el-form>
-		</el-drawer>
-	</div>
+						<el-input v-model="rowDataForm.name" />
+					</el-form-item>
+					<el-form-item
+						label="生产日期"
+						prop="date"
+					>
+						<el-date-picker
+							v-model="rowDataForm.date"
+							type="date"
+						/>
+					</el-form-item>
+					<el-form-item
+						label="生产地址"
+						prop="address"
+					>
+						<el-input v-model="rowDataForm.address" />
+					</el-form-item>
+				</el-form>
+			</template>
+			<template v-slot:drawFooter>
+				<el-button
+					type="primary"
+					@click="submitForm(rowDataFormRef)"
+					>提交</el-button
+				>
+				<el-button @click="cancelForm">取消</el-button>
+			</template>
+		</layout-drawer>
+	</el-drawer>
 </template>
 
 <script setup>
 import { ref, reactive } from 'vue';
 import { resourceMgtApi } from '/@/api/resource/index.ts';
+
 const emit = defineEmits(['updateRowData']);
 const resourceApi = resourceMgtApi();
 const rowDataFormRef = ref(null);

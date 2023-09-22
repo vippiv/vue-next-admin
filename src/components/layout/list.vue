@@ -44,6 +44,10 @@
 	.list_table_content {
 		flex: 1;
 	}
+	.list_header_action,
+	.list_header_searchbar {
+		padding: 8px;
+	}
 	:deep(.el-pagination) {
 		padding: 10px 0;
 		width: 100%;
