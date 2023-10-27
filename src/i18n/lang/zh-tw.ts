@@ -26,6 +26,7 @@ export default {
 		funIndex: '功能',
 		funTagsView: 'tagsView 操作',
 		resourceView: '资源管理',
+		tableSelection: '表格多选',
 		funCountup: '數位滾動',
 		funWangEditor: 'Editor 編輯器',
 		funCropper: '圖片裁剪',

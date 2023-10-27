@@ -1,10 +1,10 @@
 import request from '/@/utils/request';
 
-export function resourceMgtApi() {
+export function tableSelectionApi() {
     return {
         getResource: (params?: object) => {
             return request({
-                url: '/resource',
+                url: '/tableResource',
                 method: 'get',
                 params,
             });

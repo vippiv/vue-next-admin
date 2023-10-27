@@ -414,6 +414,21 @@ export const dynamicRoutes: Array<RouteRecordRaw> = [
 				},
 				children: [
 					{
+						path: '/fun/tableSelection',
+						name: 'tableSelection',
+						component: () => import('/@/views/fun/tableSelection/index.vue'),
+						meta: {
+							title: 'message.router.tableSelection',
+							isLink: '',
+							isHide: false,
+							isKeepAlive: true,
+							isAffix: false,
+							isIframe: false,
+							roles: ['admin', 'common'],
+							icon: 'ele-Pointer',
+						},
+					},
+					{
 						path: '/fun/resource',
 						name: 'resourceView',
 						component: () => import('/@/views/fun/resourceMgt/index.vue'),

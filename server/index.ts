@@ -8,6 +8,9 @@ interface Item {
     date?: string;
     address?: string;
 }
+interface DataItem {
+    name: string;
+}
 const app = express()
 const port = 9527
 const corsOptions = {
@@ -37,6 +40,33 @@ app.get('/adminMenu', (req, res) => {
 app.get('/resource', (req, res) => {
     readFile(path.resolve(__dirname, './data/resource.json')).then(data => {
         res.end(data)
+    }).catch(err => {
+        res.end(err)
+    })
+})
+
+app.get('/tableResource', (req, res) => {
+    readFile(path.resolve(__dirname, './data/table/list.json')).then(data => {
+        res.end(data)
+    }).catch(err => {
+        res.end(err)
+    })
+})
+
+app.get('/table', (req, res) => {
+    const { name, pageNum } = req.query
+    const page = pageNum || 1
+    readFile(path.resolve(__dirname, `./data/table/table${page}.json`)).then(data => {
+        if (name) {
+            const jsonData = JSON.parse(buffer2String(data as Buffer))
+            const entityData = jsonData.data.filter((item: DataItem) => item.name.includes(name as string))
+            jsonData.total = entityData.length
+            jsonData.data = entityData
+            res.end(Buffer.from(JSON.stringify(jsonData), 'utf8'))
+        } else {
+            res.end(data)
+
+        }
     }).catch(err => {
         res.end(err)
     })
@@ -72,3 +102,7 @@ app.post('/resource/save', (req, res) => {
 app.listen(port, () => {
     console.log(`Your app listening on port http://localhost:${port}`)
 })
+
+function buffer2String(data: Buffer): string {
+    return data.toString('utf-8')
+}

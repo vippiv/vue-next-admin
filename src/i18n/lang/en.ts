@@ -26,6 +26,7 @@ export default {
 		funIndex: 'function',
 		funTagsView: 'funTagsView',
 		resourceView: 'resourceManage',
+		tableSelection: 'tableSelection',
 		funCountup: 'countup',
 		funWangEditor: 'wangEditor',
 		funCropper: 'cropper',

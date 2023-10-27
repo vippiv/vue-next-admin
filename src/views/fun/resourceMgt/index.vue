@@ -5,6 +5,7 @@
 		</template>
 		<template v-slot:headerAction>
 			<el-button>新增</el-button>
+			<el-button @click="tableSelectionVis = true">table selection</el-button>
 		</template>
 		<template v-slot:tableContent>
 			<el-table
@@ -74,6 +75,10 @@
 			ref="settingRef"
 			@updateSetting="handleUpdateSetting"
 		></setting>
+		<table-selection
+			v-if="tableSelectionVis"
+			:tableDataApi="getResourceApi.getTableSectionList"
+		></table-selection>
 	</layout-list>
 </template>
 
@@ -92,7 +97,7 @@ const stateTableData = ref(null);
 const detailRef = ref(null);
 const editRef = ref(null);
 const settingRef = ref(null);
-
+const tableSelectionVis = ref(false);
 // const testStore = userInfo2();
 // const { counter, doubleCounter } = storeToRefs(testStore);
 // const { increaseCounter } = testStore;
