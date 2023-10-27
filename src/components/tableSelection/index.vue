@@ -1,6 +1,7 @@
 <template>
 	<el-dialog
 		width="80%"
+		@close="handleClose"
 		v-model="dialogVisible"
 	>
 		<template #header="{}">
@@ -98,7 +99,7 @@
 								:key="index"
 							>
 								<div class="del-icon">
-									<el-icon @click="handleClose(item)">
+									<el-icon @click="handleDel(item)">
 										<el-icon><CircleClose /></el-icon>
 									</el-icon>
 								</div>
@@ -220,12 +221,12 @@ const handleResetSearch = () => {
 const handleSubmit = () => {
 	emits('update:chooseList', chooseList.value);
 	dialogVisible.value = false;
-	emits('close', false);
+	handleClose();
 };
 
-const handleClose = (obj) => {
+const handleDel = (obj) => {
 	const target = tableData.value.find((item) => item.kbId === obj.kbId);
-	console.log('🚀 ~ file: index.vue:219 ~ handleClose ~ target:', target);
+	console.log('🚀 ~ file: index.vue:219 ~ handleDel ~ target:', target);
 	if (target) {
 		proxy.$refs['multipleTableRef'].toggleRowSelection(target, false);
 	} else {
@@ -260,6 +261,10 @@ const checkTableDataAndStickExtendField = () => {
 const handleCurrentChange = (val) => {
 	pageParams.pageNum = val;
 	search();
+};
+
+const handleClose = () => {
+	emits('close', false);
 };
 </script>
 
