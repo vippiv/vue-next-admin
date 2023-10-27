@@ -43,7 +43,7 @@
 					ref="multipleTableRef"
 					v-loading="loading"
 					:height="450"
-					:data="knowledgeTableData"
+					:data="tableData"
 					row-key="kbId"
 					style="width: 100%"
 					@selection-change="handleSelectionChange"
@@ -105,17 +105,23 @@
 								<div class="name">{{ item.name }}</div>
 								<div class="duration">
 									要求完成时长
-									<el-input
+									<el-input-number
 										class="duration-input"
-										size="small"
 										v-model="item.requireTimeMinute"
-									></el-input>
-									分
-									<el-input
-										class="duration-input"
+										:step="1"
+										:max="60"
+										:min="0"
 										size="small"
+									/>
+									分
+									<el-input-number
+										class="duration-input"
 										v-model="item.requireTimeSecond"
-									></el-input>
+										:step="1"
+										:max="60"
+										:min="0"
+										size="small"
+									/>
 									秒
 								</div>
 							</li>
@@ -152,7 +158,7 @@ const props = defineProps({
 const { proxy } = getCurrentInstance();
 const emits = defineEmits(['update:chooseList', 'close']);
 const chooseList = ref(props.chooseList);
-const knowledgeTableData = ref([]);
+const tableData = ref([]);
 const total = ref(0);
 const loading = ref(false);
 const dialogVisible = ref(props.tableSelectionVis);
@@ -182,8 +188,8 @@ const handleSelectionChange = (val) => {
 		return Object.assign({}, item, {
 			kbId: item.kbId,
 			name: item.name,
-			requireTimeMinute: '',
-			requireTimeSecond: '',
+			requireTimeMinute: item.requireTimeMinute,
+			requireTimeSecond: item.requireTimeSecond,
 		});
 	});
 };
@@ -195,7 +201,7 @@ const search = () => {
 	props
 		.tableDataApi({ ...data, ...params })
 		.then((res) => {
-			knowledgeTableData.value = res.data;
+			tableData.value = res.data;
 			total.value = res.total;
 			setTimeout(() => {
 				checkTableDataAndStickExtendField();
@@ -218,13 +224,13 @@ const handleSubmit = () => {
 };
 
 const handleClose = (obj) => {
-	const target = knowledgeTableData.value.find((item) => item.kbId === obj.kbId);
+	const target = tableData.value.find((item) => item.kbId === obj.kbId);
 	console.log('🚀 ~ file: index.vue:219 ~ handleClose ~ target:', target);
 	if (target) {
 		proxy.$refs['multipleTableRef'].toggleRowSelection(target, false);
 	} else {
 		chooseList.value = chooseList.value.filter((item) => item.kbId !== obj.kbId);
-		// 把已选的数据重新render一下，组件内部对于不存在的selection处理不好
+		// 把已选的数据clearSelection后·重新render一下，组件内部对于不存在的selection处理不好
 		checkTableDataAndStickExtendField();
 	}
 };
@@ -239,8 +245,8 @@ const checkTableDataAndStickExtendField = () => {
 	isTrigerTableChangeEvent.value = false;
 	proxy.$refs['multipleTableRef'].clearSelection();
 	chooseList.value.forEach((row) => {
-		const target = knowledgeTableData.value.find((item) => item.kbId === row.kbId);
-		console.log('🚀 ~ file: index.vue:230 ~ knowledgeTableData.value.forEach ~ target:', target);
+		const target = tableData.value.find((item) => item.kbId === row.kbId);
+		console.log('🚀 ~ file: index.vue:230 ~ tableData.value.forEach ~ target:', target);
 		if (target) {
 			proxy.$refs['multipleTableRef'].toggleRowSelection(target, true);
 		} else {
@@ -294,7 +300,7 @@ const handleCurrentChange = (val) => {
 }
 .duration-input {
 	display: inline-block;
-	width: 45px;
+	width: 95px;
 }
 .my-header {
 	display: grid;
