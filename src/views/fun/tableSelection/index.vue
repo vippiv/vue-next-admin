@@ -4,8 +4,8 @@
 			<search-bar></search-bar>
 		</template>
 		<template v-slot:headerAction>
-			{{ tableSelectionVis }}
 			<el-button @click="tableSelectionVis = true">table selection</el-button>
+			<el-button @click="reportVisible = true">定时上报</el-button>
 		</template>
 		<template v-slot:tableContent>
 			<el-table
@@ -63,6 +63,7 @@
 			:tableSelectionVis="tableSelectionVis"
 			@close="tableSelectionVis = false"
 		></table-selection>
+		<regularReporting v-if="reportVisible"></regularReporting>
 	</layout-list>
 </template>
 
@@ -72,6 +73,8 @@ import { tableSelectionApi } from '/@/api/tableSelection/index.ts';
 const getTableSelectionApi = tableSelectionApi();
 const stateTableData = ref(null);
 const tableSelectionVis = ref(false);
+const reportVisible = ref(false);
+
 const getLists = () => {
 	getTableSelectionApi.getResource().then((res) => {
 		if (res.code === 0) {
