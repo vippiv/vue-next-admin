@@ -92,7 +92,7 @@
 			</div>
 			<div class="right">
 				<div>
-					<div v-if="chooseList.length">
+					<div v-if="chooseList?.length">
 						<ul class="choosed-knowledge-container">
 							<li
 								v-for="(item, index) in chooseList"
@@ -143,7 +143,7 @@
 </template>
 
 <script setup>
-import { getCurrentInstance, ref, reactive, onBeforeMount } from 'vue';
+import { getCurrentInstance, ref, reactive, onBeforeMount, watch, nextTick } from 'vue';
 const props = defineProps({
 	tableSelectionVis: {
 		type: Boolean,
@@ -157,12 +157,12 @@ const props = defineProps({
 	},
 });
 const { proxy } = getCurrentInstance();
-const emits = defineEmits(['update:chooseList', 'close']);
+const emits = defineEmits(['update:chooseList', 'update:disVisible', 'close']);
 const chooseList = ref(props.chooseList);
 const tableData = ref([]);
 const total = ref(0);
 const loading = ref(false);
-const dialogVisible = ref(props.tableSelectionVis);
+const dialogVisible = ref(false);
 const isTrigerTableChangeEvent = ref(true);
 const queryParams = reactive({
 	name: '',
@@ -174,7 +174,7 @@ const pageParams = reactive({
 });
 
 onBeforeMount(async () => {
-	initData();
+	// initData();
 });
 
 /** 数据初始化 */
@@ -204,9 +204,9 @@ const search = () => {
 		.then((res) => {
 			tableData.value = res.data;
 			total.value = res.total;
-			setTimeout(() => {
+			nextTick(() => {
 				checkTableDataAndStickExtendField();
-			}, 500);
+			});
 		})
 		.finally(() => (loading.value = false));
 };
@@ -264,8 +264,15 @@ const handleCurrentChange = (val) => {
 };
 
 const handleClose = () => {
-	emits('close', false);
+	emits('update:disVisible', false);
 };
+
+watch(
+	() => props.tableSelectionVis,
+	(val) => {
+		dialogVisible.value = val;
+	}
+);
 </script>
 
 <style lang="scss" scoped>

@@ -4,7 +4,7 @@
 			<search-bar></search-bar>
 		</template>
 		<template v-slot:headerAction>
-			<el-button>新增</el-button>
+			{{ tableSelectionVis }}
 			<el-button @click="tableSelectionVis = true">table selection</el-button>
 		</template>
 		<template v-slot:tableContent>
@@ -57,7 +57,7 @@
 			/>
 		</template>
 		<table-selection
-			v-if="tableSelectionVis"
+			v-model:disVisible="tableSelectionVis"
 			v-model:chooseList="stateTableData"
 			:tableDataApi="getTableSelectionApi.getTableSectionList"
 			:tableSelectionVis="tableSelectionVis"
