@@ -60,6 +60,7 @@ export default {
 		pagesLazyImg: '图片懒加载',
 		makeIndex: '组件封装',
 		makeSelector: '图标选择器',
+		makeDynamicForm: '动态表单',
 		makeNoticeBar: '滚动通知栏',
 		makeSvgDemo: 'svgIcon 演示',
 		makeTableDemo: '表格封装演示',

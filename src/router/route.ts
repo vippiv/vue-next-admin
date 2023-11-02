@@ -938,6 +938,21 @@ export const dynamicRoutes: Array<RouteRecordRaw> = [
 				},
 				children: [
 					{
+						path: '/make/dynamicForm',
+						name: 'makeDynamicForm',
+						component: () => import('/@/views/make/dynamicForm/index.vue'),
+						meta: {
+							title: 'message.router.makeDynamicForm',
+							isLink: '',
+							isHide: false,
+							isKeepAlive: true,
+							isAffix: false,
+							isIframe: false,
+							roles: ['admin', 'common'],
+							icon: 'iconfont icon-xuanzeqi',
+						},
+					},
+					{
 						path: '/make/selector',
 						name: 'makeSelector',
 						component: () => import('/@/views/make/selector/index.vue'),

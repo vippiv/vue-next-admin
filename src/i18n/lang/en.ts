@@ -60,6 +60,7 @@ export default {
 		pagesLazyImg: 'Image lazy loading',
 		makeIndex: 'makeIndex',
 		makeSelector: 'Icon selector',
+		makeDynamicForm: 'Dynamic form',
 		makeNoticeBar: 'notification bar',
 		makeSvgDemo: 'Svgicon demo',
 		makeTableDemo: 'table demo',
