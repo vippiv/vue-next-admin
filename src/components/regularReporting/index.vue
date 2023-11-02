@@ -1,19 +1,32 @@
 <template>
-	<layout-list>
-		<div class="preview-header">
-			<div>总时间</div>
-			<div>剩余{{ lastTime }}</div>
-		</div>
-		<div class="preview-main"></div>
-	</layout-list>
+	<el-dialog
+		width="600px"
+		@close="handleClose"
+		@open="handleOpen"
+		v-model="visible"
+	>
+		<layout-list>
+			<div class="preview-header">
+				<div>总时间 {{ requireTime }}秒，</div>
+				<div>剩余 {{ lastTime > 0 ? secondToTimeDesc(lastTime) : '0秒' }}</div>
+			</div>
+			<div class="preview-main"></div>
+		</layout-list>
+	</el-dialog>
 </template>
 <script setup lang="ts" name="knowledge-preview">
 //#region 引用
-import { ref, onBeforeMount, onMounted, onBeforeUnmount, computed } from 'vue';
+import { ref, onBeforeMount, onMounted, onBeforeUnmount, computed, nextTick } from 'vue';
 import { secondToTimeDesc } from '/@/utils/date';
 //#end region
 
 //#region 参数
+const emits = defineEmits(['update:reportVisible']);
+const props = defineProps({
+	reportVisible: {
+		type: Boolean,
+	},
+});
 //#endregion
 
 //#region 数据
@@ -24,7 +37,7 @@ const totalWatchSeconds = ref(0);
 let interval = null;
 let playTimer: NodeJS.Timeout | null = null;
 const lastTime = computed(() => {
-	const res = secondToTimeDesc(requireTime.value - totalWatchSeconds.value - playTime.value);
+	const res = requireTime.value - totalWatchSeconds.value - playTime.value;
 	if (res <= 0) {
 		clearReport();
 		clearPlayTime();
@@ -32,6 +45,7 @@ const lastTime = computed(() => {
 	}
 	return res;
 });
+const visible = computed(() => props.reportVisible);
 //#endregion
 
 //#region 方法
@@ -71,20 +85,36 @@ const calcPlayTime = (val: number) => {
 	}
 	playTime.value += val;
 };
+const startUp = () => {
+	startReport();
+	setPlayTime();
+};
+const endUp = () => {
+	clearReport();
+	clearPlayTime();
+	sendMessage('最后一次上报');
+};
+const handleOpen = () => {
+	sendMessage('初次上报');
+	nextTick(() => {
+		startUp();
+	});
+};
+const handleClose = () => {
+	endUp();
+	emits('update:reportVisible', false);
+};
 //#endregion
 
 //#region 周期
 onBeforeMount(() => {
-	sendMessage('初次上报');
+	// sendMessage('初次上报');
 });
 onMounted(() => {
-	startReport();
-	setPlayTime();
+	// startUp();
 });
 onBeforeUnmount(() => {
-	clearReport();
-	clearPlayTime();
-	sendMessage('最后一次上报');
+	endUp();
 });
 //#endregion
 </script>
@@ -93,11 +123,8 @@ onBeforeUnmount(() => {
 .preview-header {
 	display: flex;
 	padding: 15px 0;
-}
-.preview-main {
-	iframe {
-		width: 100%;
-		height: 100vh;
-	}
+	justify-content: center;
+	font-size: 24px;
+	font-weight: bold;
 }
 </style>

@@ -63,7 +63,7 @@
 			:tableSelectionVis="tableSelectionVis"
 			@close="tableSelectionVis = false"
 		></table-selection>
-		<regularReporting v-if="reportVisible"></regularReporting>
+		<regularReporting v-model:reportVisible="reportVisible"></regularReporting>
 	</layout-list>
 </template>
 
