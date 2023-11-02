@@ -3,6 +3,7 @@
 		width="600px"
 		@close="handleClose"
 		@open="handleOpen"
+		v-drag
 		v-model="visible"
 	>
 		<layout-list>
@@ -18,6 +19,11 @@
 //#region 引用
 import { ref, onBeforeMount, onMounted, onBeforeUnmount, computed, nextTick } from 'vue';
 import { secondToTimeDesc } from '/@/utils/date';
+
+//#end region
+
+//#region 指令
+
 //#end region
 
 //#region 参数
