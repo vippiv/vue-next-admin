@@ -143,7 +143,7 @@
 </template>
 
 <script setup>
-import { getCurrentInstance, ref, reactive, onBeforeMount, watch, nextTick } from 'vue';
+import { getCurrentInstance, ref, reactive, onBeforeMount, watch, nextTick, computed } from 'vue';
 const props = defineProps({
 	tableSelectionVis: {
 		type: Boolean,
@@ -162,7 +162,7 @@ const chooseList = ref(props.chooseList);
 const tableData = ref([]);
 const total = ref(0);
 const loading = ref(false);
-const dialogVisible = ref(false);
+const dialogVisible = computed(() => props.tableSelectionVis);
 const isTrigerTableChangeEvent = ref(true);
 const queryParams = reactive({
 	name: '',
@@ -220,7 +220,6 @@ const handleResetSearch = () => {
 /** 提交用户选择 */
 const handleSubmit = () => {
 	emits('update:chooseList', chooseList.value);
-	dialogVisible.value = false;
 	handleClose();
 };
 
@@ -266,13 +265,6 @@ const handleCurrentChange = (val) => {
 const handleClose = () => {
 	emits('update:disVisible', false);
 };
-
-watch(
-	() => props.tableSelectionVis,
-	(val) => {
-		dialogVisible.value = val;
-	}
-);
 </script>
 
 <style lang="scss" scoped>
