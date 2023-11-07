@@ -940,7 +940,7 @@ export const dynamicRoutes: Array<RouteRecordRaw> = [
 					{
 						path: '/make/nativeDynamicForm',
 						name: 'makeNativeDynamicForm',
-						component: () => import('/@/views/make/nativeDynamicForm/index2.vue'),
+						component: () => import('/@/views/make/nativeDynamicForm/index.vue'),
 						meta: {
 							title: 'message.router.makeNativeDynamicForm',
 							isLink: '',

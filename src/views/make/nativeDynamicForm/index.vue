@@ -22,7 +22,7 @@
 								type="radio"
 								:value="option.value"
 								v-model="answers[question.vModel]"
-								name="question{{ index }}"
+								:name="`question${question.vModel}`"
 							/>
 							{{ option.label }}
 						</label>
@@ -142,195 +142,6 @@ const questions = ref([
 			},
 		],
 	},
-	// {
-	// 	type: 'radio',
-	// 	title: '3.  我从课程中得到的挑战是适度的',
-	// 	selected: '',
-	// 	options: [
-	// 		{
-	// 			label: '5分',
-	// 			value: 5,
-	// 		},
-	// 		{
-	// 			label: '4分',
-	// 			value: 4,
-	// 		},
-	// 		{
-	// 			label: '3分',
-	// 			value: 3,
-	// 		},
-	// 		{
-	// 			label: '2分',
-	// 			value: 2,
-	// 		},
-	// 		{
-	// 			label: '1分',
-	// 			value: 1,
-	// 		},
-	// 	],
-	// },
-	// {
-	// 	type: 'radio',
-	// 	title: '4.  课程内容对我工作的成功有极大的帮助',
-	// 	selected: '',
-	// 	options: [
-	// 		{
-	// 			label: '5分',
-	// 			value: 5,
-	// 		},
-	// 		{
-	// 			label: '4分',
-	// 			value: 4,
-	// 		},
-	// 		{
-	// 			label: '3分',
-	// 			value: 3,
-	// 		},
-	// 		{
-	// 			label: '2分',
-	// 			value: 2,
-	// 		},
-	// 		{
-	// 			label: '1分',
-	// 			value: 1,
-	// 		},
-	// 	],
-	// },
-	// {
-	// 	type: 'radio',
-	// 	title: '5.  课程逻辑清晰，结构分明，便于我理解记忆',
-	// 	selected: '',
-	// 	options: [
-	// 		{
-	// 			label: '5分',
-	// 			value: 5,
-	// 		},
-	// 		{
-	// 			label: '4分',
-	// 			value: 4,
-	// 		},
-	// 		{
-	// 			label: '3分',
-	// 			value: 3,
-	// 		},
-	// 		{
-	// 			label: '2分',
-	// 			value: 2,
-	// 		},
-	// 		{
-	// 			label: '1分',
-	// 			value: 1,
-	// 		},
-	// 	],
-	// },
-	// {
-	// 	type: 'radio',
-	// 	title: '6.  安排的活动，练习和范例明确易懂，有助于我理解课程内容',
-	// 	selected: '',
-	// 	options: [
-	// 		{
-	// 			label: '5分',
-	// 			value: 5,
-	// 		},
-	// 		{
-	// 			label: '4分',
-	// 			value: 4,
-	// 		},
-	// 		{
-	// 			label: '3分',
-	// 			value: 3,
-	// 		},
-	// 		{
-	// 			label: '2分',
-	// 			value: 2,
-	// 		},
-	// 		{
-	// 			label: '1分',
-	// 			value: 1,
-	// 		},
-	// 	],
-	// },
-	// {
-	// 	type: 'radio',
-	// 	title: '7.  我能投入参与培训中',
-	// 	selected: '',
-	// 	options: [
-	// 		{
-	// 			label: '5分',
-	// 			value: 5,
-	// 		},
-	// 		{
-	// 			label: '4分',
-	// 			value: 4,
-	// 		},
-	// 		{
-	// 			label: '3分',
-	// 			value: 3,
-	// 		},
-	// 		{
-	// 			label: '2分',
-	// 			value: 2,
-	// 		},
-	// 		{
-	// 			label: '1分',
-	// 			value: 1,
-	// 		},
-	// 	],
-	// },
-	// {
-	// 	type: 'radio',
-	// 	title: '8.  讲师语言表达流畅清晰',
-	// 	selected: '',
-	// 	options: [
-	// 		{
-	// 			label: '5分',
-	// 			value: 5,
-	// 		},
-	// 		{
-	// 			label: '4分',
-	// 			value: 4,
-	// 		},
-	// 		{
-	// 			label: '3分',
-	// 			value: 3,
-	// 		},
-	// 		{
-	// 			label: '2分',
-	// 			value: 2,
-	// 		},
-	// 		{
-	// 			label: '1分',
-	// 			value: 1,
-	// 		},
-	// 	],
-	// },
-	// {
-	// 	type: 'radio',
-	// 	title: '9.  讲师对授课时间的掌控非常好',
-	// 	selected: '',
-	// 	options: [
-	// 		{
-	// 			label: '5分',
-	// 			value: 5,
-	// 		},
-	// 		{
-	// 			label: '4分',
-	// 			value: 4,
-	// 		},
-	// 		{
-	// 			label: '3分',
-	// 			value: 3,
-	// 		},
-	// 		{
-	// 			label: '2分',
-	// 			value: 2,
-	// 		},
-	// 		{
-	// 			label: '1分',
-	// 			value: 1,
-	// 		},
-	// 	],
-	// },
 	{
 		type: 'radio',
 		title: '10. 讲师现场气氛调节能力非常强',
@@ -369,34 +180,38 @@ const questions = ref([
 //#endregion
 
 //#region 事件
-const validate = () => {
-	// let validateComplete = true;
-	// Object.keys(answers.value).forEach((key) => {
-	// 	if (!answers.value[key]) {
-	// 		validateComplete = false;
-	// 	}
-	// });
-	// return validateComplete;
+const clearValidateErr = (fields) => {
+	if (!Array.isArray(fields)) return;
+	fields.forEach((item) => {
+		const ele = document.querySelector(`div[data-props=${item}]`);
+		if (ele) {
+			ele.className = ele.className.replace('validator-error');
+		}
+	});
+};
+const addValidateErr = (fields) => {
+	if (!Array.isArray(fields)) return;
+	fields.forEach((item) => {
+		const ele = document.querySelector(`div[data-props=${item}]`);
+		if (ele) {
+			ele.className = ele.className + ' validator-error';
+		}
+	});
+};
+const handleSubmit = () => {
 	validator
 		.validate(answers.value)
 		.then((fields) => {
+			console.log('🚀 ~ file: index.vue:395 ~ .then ~ fields:', fields);
+			clearValidateErr(Object.keys(answers.value));
 			// 验证通过
-			console.log('验证成功', fields);
 		})
 		.catch(({ errors, fields }) => {
+			console.log('🚀 ~ file: index.vue:399 ~ handleSubmit ~ errors:', errors);
 			// 验证失败
-			console.log('验证失败', fields);
-			Object.keys(fields).forEach((key) => {
-				document.querySelector(`div[data-props=${key}]`).className = document.querySelector(`div[data-props=${key}]`).className + ' validator-error';
-			});
+			clearValidateErr(Object.keys(answers.value));
+			addValidateErr(Object.keys(fields));
 		});
-};
-const handleSubmit = () => {
-	if (!validate()) {
-		// alert('您有未完成的表单项！');
-		return;
-	}
-	console.log('🚀 ~ file: index.vue:343 ~ handleSubmit ~ answers:', answers.value);
 };
 //#endregion
 
@@ -465,6 +280,8 @@ const handleSubmit = () => {
 	}
 }
 .validator-error {
-	border: 1px solid red;
+	border-radius: 6px;
+	border: 1px solid #f56c6c;
+	margin-bottom: 6px;
 }
 </style>
