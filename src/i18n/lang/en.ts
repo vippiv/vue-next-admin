@@ -61,6 +61,7 @@ export default {
 		makeIndex: 'makeIndex',
 		makeSelector: 'Icon selector',
 		makeDynamicForm: 'Dynamic form',
+		makeNativeDynamicForm: 'Native Dynamic Form',
 		makeNoticeBar: 'notification bar',
 		makeSvgDemo: 'Svgicon demo',
 		makeTableDemo: 'table demo',
