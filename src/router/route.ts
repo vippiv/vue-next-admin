@@ -1162,6 +1162,21 @@ export const dynamicRoutes: Array<RouteRecordRaw> = [
 							icon: 'iconfont icon-caozuo-wailian',
 						},
 					},
+					{
+						path: '/visualizing/clickBar',
+						name: 'visualizingClickBar',
+						component: () => import('/@/views/chart/clickBar.vue'),
+						meta: {
+							title: 'message.router.visualizingClickBar',
+							isLink: '',
+							isHide: false,
+							isKeepAlive: false,
+							isAffix: false,
+							isIframe: false,
+							roles: ['admin'],
+							icon: 'iconfont icon-caozuo-wailian',
+						},
+					},
 				],
 			},
 			{

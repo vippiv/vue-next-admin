@@ -74,6 +74,7 @@ export default {
 		visualizingIndex: '数据可视化',
 		visualizingLinkDemo1: '数据可视化演示1',
 		visualizingLinkDemo2: '数据可视化演示2',
+		visualizingClickBar: '可点击柱状图',
 		personal: '个人中心',
 		tools: '工具类集合',
 		layoutLinkView: '外链',

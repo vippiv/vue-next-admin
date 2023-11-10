@@ -74,6 +74,7 @@ export default {
 		visualizingIndex: 'visualizingIndex',
 		visualizingLinkDemo1: 'visualizingLinkDemo1',
 		visualizingLinkDemo2: 'visualizingLinkDemo2',
+		visualizingClickBar: 'visualizingClickBar',
 		personal: 'personal',
 		tools: 'tools',
 		layoutLinkView: 'LinkView',
