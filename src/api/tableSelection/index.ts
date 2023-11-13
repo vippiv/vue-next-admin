@@ -4,21 +4,14 @@ export function tableSelectionApi() {
     return {
         getResource: (params?: object) => {
             return request({
-                url: '/tableResource',
+                url: '/tableSelection/tableResource',
                 method: 'get',
                 params,
             });
         },
-        save: (params?: object) => {
-            return request({
-                url: '/resource/save',
-                method: 'post',
-                data: params
-            });
-        },
         getTableSectionList: (params?: object) => {
             return request({
-                url: '/table',
+                url: '/tableSelection/table',
                 method: 'get',
                 params,
             });

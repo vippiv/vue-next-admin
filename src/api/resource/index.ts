@@ -4,21 +4,21 @@ export function resourceMgtApi() {
     return {
         getResource: (params?: object) => {
             return request({
-                url: '/resource',
+                url: '/rsg/resource',
                 method: 'get',
                 params,
             });
         },
         save: (params?: object) => {
             return request({
-                url: '/resource/save',
+                url: '/rsg/resource/save',
                 method: 'post',
                 data: params
             });
         },
         getTableSectionList: (params?: object) => {
             return request({
-                url: '/table',
+                url: '/rsg/table',
                 method: 'get',
                 params,
             });

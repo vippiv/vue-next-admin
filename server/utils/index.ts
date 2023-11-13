@@ -25,3 +25,7 @@ export function generateMathRandom(min: number, max: number) {
     const randomValue = buffer.readUInt32LE(0); // Convert bytes to an integer
     return Math.floor(randomValue / 0xFFFFFFFF * (max - min + 1)) + min;
 }
+
+export function buffer2String(data: Buffer): string {
+    return data.toString('utf-8')
+}
