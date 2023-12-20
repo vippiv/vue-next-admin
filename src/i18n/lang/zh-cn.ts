@@ -59,6 +59,7 @@ export default {
 		pagesDrag: '拖动指令',
 		pagesLazyImg: '图片懒加载',
 		makeIndex: '组件封装',
+		categoryPlain: '扁平菜单',
 		makeSelector: '图标选择器',
 		makeDynamicForm: '动态表单',
 		makeNativeDynamicForm: '原生动态表单',

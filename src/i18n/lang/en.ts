@@ -59,6 +59,8 @@ export default {
 		pagesDrag: 'Drag command',
 		pagesLazyImg: 'Image lazy loading',
 		makeIndex: 'makeIndex',
+		categoryPlain: 'Category plain',
+
 		makeSelector: 'Icon selector',
 		makeDynamicForm: 'Dynamic form',
 		makeNativeDynamicForm: 'Native Dynamic Form',

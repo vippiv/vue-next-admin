@@ -938,6 +938,21 @@ export const dynamicRoutes: Array<RouteRecordRaw> = [
 				},
 				children: [
 					{
+						path: '/make/categoryPlain',
+						name: 'makeCategoryPlain',
+						component: () => import('/@/views/make/categoryPlain/index.vue'),
+						meta: {
+							title: 'message.router.categoryPlain',
+							isLink: '',
+							isHide: false,
+							isKeepAlive: true,
+							isAffix: false,
+							isIframe: false,
+							roles: ['admin', 'common'],
+							icon: 'iconfont icon-xuanzeqi',
+						},
+					},
+					{
 						path: '/make/nativeDynamicForm',
 						name: 'makeNativeDynamicForm',
 						component: () => import('/@/views/make/nativeDynamicForm/index.vue'),

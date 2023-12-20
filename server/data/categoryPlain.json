@@ -1,0 +1,854 @@
+{
+    "code": 200,
+    "msg": "操作成功",
+    "data": [
+        {
+            "codeId": 31,
+            "typeCode": "10001",
+            "parentId": 0,
+            "codeName": "公共通识",
+            "sequence": 100,
+            "children": [
+                {
+                    "codeId": 47,
+                    "typeCode": "10001",
+                    "parentId": 31,
+                    "codeName": "新人必学",
+                    "sequence": 200,
+                    "children": []
+                },
+                {
+                    "codeId": 48,
+                    "typeCode": "10001",
+                    "parentId": 31,
+                    "codeName": "行业分享",
+                    "sequence": 300,
+                    "children": []
+                },
+                {
+                    "codeId": 50,
+                    "typeCode": "10001",
+                    "parentId": 31,
+                    "codeName": "组织文化",
+                    "sequence": 500,
+                    "children": []
+                },
+                {
+                    "codeId": 52,
+                    "typeCode": "10001",
+                    "parentId": 31,
+                    "codeName": "职业发展",
+                    "sequence": 600,
+                    "children": []
+                },
+                {
+                    "codeId": 54,
+                    "typeCode": "10001",
+                    "parentId": 31,
+                    "codeName": "自我提升",
+                    "sequence": 700,
+                    "children": []
+                }
+            ]
+        },
+        {
+            "codeId": 32,
+            "typeCode": "10001",
+            "parentId": 0,
+            "codeName": "市场营销",
+            "sequence": 200,
+            "children": [
+                {
+                    "codeId": 58,
+                    "typeCode": "10001",
+                    "parentId": 32,
+                    "codeName": "市场营销",
+                    "sequence": 100,
+                    "children": [
+                        {
+                            "codeId": 138,
+                            "typeCode": "10001",
+                            "parentId": 58,
+                            "codeName": "公共关系",
+                            "sequence": 0,
+                            "children": []
+                        },
+                        {
+                            "codeId": 113,
+                            "typeCode": "10001",
+                            "parentId": 58,
+                            "codeName": "品牌营销",
+                            "sequence": 100,
+                            "children": []
+                        },
+                        {
+                            "codeId": 114,
+                            "typeCode": "10001",
+                            "parentId": 58,
+                            "codeName": "业务拓展",
+                            "sequence": 200,
+                            "children": []
+                        },
+                        {
+                            "codeId": 115,
+                            "typeCode": "10001",
+                            "parentId": 58,
+                            "codeName": "营销与运营",
+                            "sequence": 300,
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "codeId": 60,
+                    "typeCode": "10001",
+                    "parentId": 32,
+                    "codeName": "业务销售",
+                    "sequence": 200,
+                    "children": [
+                        {
+                            "codeId": 139,
+                            "typeCode": "10001",
+                            "parentId": 60,
+                            "codeName": "门店销售",
+                            "sequence": 0,
+                            "children": []
+                        },
+                        {
+                            "codeId": 116,
+                            "typeCode": "10001",
+                            "parentId": 60,
+                            "codeName": "电话销售",
+                            "sequence": 100,
+                            "children": []
+                        },
+                        {
+                            "codeId": 117,
+                            "typeCode": "10001",
+                            "parentId": 60,
+                            "codeName": "销售技巧",
+                            "sequence": 200,
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "codeId": 61,
+                    "typeCode": "10001",
+                    "parentId": 32,
+                    "codeName": "商务合作",
+                    "sequence": 300,
+                    "children": []
+                }
+            ]
+        },
+        {
+            "codeId": 35,
+            "typeCode": "10001",
+            "parentId": 0,
+            "codeName": "产品经理",
+            "sequence": 300,
+            "children": [
+                {
+                    "codeId": 62,
+                    "typeCode": "10001",
+                    "parentId": 35,
+                    "codeName": "产品经理",
+                    "sequence": 100,
+                    "children": [
+                        {
+                            "codeId": 140,
+                            "typeCode": "10001",
+                            "parentId": 62,
+                            "codeName": "策略产品",
+                            "sequence": 0,
+                            "children": []
+                        },
+                        {
+                            "codeId": 84,
+                            "typeCode": "10001",
+                            "parentId": 62,
+                            "codeName": "产品分享",
+                            "sequence": 100,
+                            "children": []
+                        },
+                        {
+                            "codeId": 85,
+                            "typeCode": "10001",
+                            "parentId": 62,
+                            "codeName": "产品规划",
+                            "sequence": 200,
+                            "children": []
+                        },
+                        {
+                            "codeId": 87,
+                            "typeCode": "10001",
+                            "parentId": 62,
+                            "codeName": "产品设计",
+                            "sequence": 300,
+                            "children": []
+                        },
+                        {
+                            "codeId": 88,
+                            "typeCode": "10001",
+                            "parentId": 62,
+                            "codeName": "数据分析",
+                            "sequence": 400,
+                            "children": []
+                        },
+                        {
+                            "codeId": 89,
+                            "typeCode": "10001",
+                            "parentId": 62,
+                            "codeName": "需求分析",
+                            "sequence": 500,
+                            "children": []
+                        },
+                        {
+                            "codeId": 90,
+                            "typeCode": "10001",
+                            "parentId": 62,
+                            "codeName": "用户研究",
+                            "sequence": 600,
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "codeId": 63,
+                    "typeCode": "10001",
+                    "parentId": 35,
+                    "codeName": "运营专家",
+                    "sequence": 200,
+                    "children": [
+                        {
+                            "codeId": 94,
+                            "typeCode": "10001",
+                            "parentId": 63,
+                            "codeName": "产品运营",
+                            "sequence": 300,
+                            "children": []
+                        },
+                        {
+                            "codeId": 95,
+                            "typeCode": "10001",
+                            "parentId": 63,
+                            "codeName": "活动运营",
+                            "sequence": 400,
+                            "children": []
+                        },
+                        {
+                            "codeId": 96,
+                            "typeCode": "10001",
+                            "parentId": 63,
+                            "codeName": "用户运营",
+                            "sequence": 500,
+                            "children": []
+                        },
+                        {
+                            "codeId": 97,
+                            "typeCode": "10001",
+                            "parentId": 63,
+                            "codeName": "运营分享",
+                            "sequence": 600,
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "codeId": 64,
+                    "typeCode": "10001",
+                    "parentId": 35,
+                    "codeName": "创意设计",
+                    "sequence": 300,
+                    "children": [
+                        {
+                            "codeId": 141,
+                            "typeCode": "10001",
+                            "parentId": 64,
+                            "codeName": "视觉设计",
+                            "sequence": 0,
+                            "children": []
+                        },
+                        {
+                            "codeId": 92,
+                            "typeCode": "10001",
+                            "parentId": 64,
+                            "codeName": "交互设计",
+                            "sequence": 100,
+                            "children": []
+                        },
+                        {
+                            "codeId": 93,
+                            "typeCode": "10001",
+                            "parentId": 64,
+                            "codeName": "设计分享",
+                            "sequence": 200,
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "codeId": 65,
+                    "typeCode": "10001",
+                    "parentId": 35,
+                    "codeName": "商业分析",
+                    "sequence": 400,
+                    "children": []
+                },
+                {
+                    "codeId": 66,
+                    "typeCode": "10001",
+                    "parentId": 35,
+                    "codeName": "产品知识",
+                    "sequence": 500,
+                    "children": [
+                        {
+                            "codeId": 142,
+                            "typeCode": "10001",
+                            "parentId": 66,
+                            "codeName": "交通",
+                            "sequence": 0,
+                            "children": []
+                        },
+                        {
+                            "codeId": 143,
+                            "typeCode": "10001",
+                            "parentId": 66,
+                            "codeName": "住宿",
+                            "sequence": 0,
+                            "children": []
+                        },
+                        {
+                            "codeId": 144,
+                            "typeCode": "10001",
+                            "parentId": 66,
+                            "codeName": "景区",
+                            "sequence": 0,
+                            "children": []
+                        },
+                        {
+                            "codeId": 145,
+                            "typeCode": "10001",
+                            "parentId": 66,
+                            "codeName": "境内游",
+                            "sequence": 0,
+                            "children": []
+                        },
+                        {
+                            "codeId": 146,
+                            "typeCode": "10001",
+                            "parentId": 66,
+                            "codeName": "邮轮",
+                            "sequence": 0,
+                            "children": []
+                        },
+                        {
+                            "codeId": 91,
+                            "typeCode": "10001",
+                            "parentId": 66,
+                            "codeName": "机票",
+                            "sequence": 100,
+                            "children": []
+                        },
+                        {
+                            "codeId": 123,
+                            "typeCode": "10001",
+                            "parentId": 66,
+                            "codeName": "出境游",
+                            "sequence": 200,
+                            "children": [
+                                {
+                                    "codeId": 124,
+                                    "typeCode": "10001",
+                                    "parentId": 123,
+                                    "codeName": "目的地",
+                                    "sequence": 100,
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "codeId": 38,
+            "typeCode": "10001",
+            "parentId": 0,
+            "codeName": "技术研发",
+            "sequence": 400,
+            "children": [
+                {
+                    "codeId": 51,
+                    "typeCode": "10001",
+                    "parentId": 38,
+                    "codeName": "软件开发",
+                    "sequence": 0,
+                    "children": []
+                },
+                {
+                    "codeId": 53,
+                    "typeCode": "10001",
+                    "parentId": 38,
+                    "codeName": "技术运维",
+                    "sequence": 100,
+                    "children": []
+                },
+                {
+                    "codeId": 55,
+                    "typeCode": "10001",
+                    "parentId": 38,
+                    "codeName": "软件测试",
+                    "sequence": 300,
+                    "children": []
+                },
+                {
+                    "codeId": 56,
+                    "typeCode": "10001",
+                    "parentId": 38,
+                    "codeName": "大数据",
+                    "sequence": 400,
+                    "children": []
+                },
+                {
+                    "codeId": 57,
+                    "typeCode": "10001",
+                    "parentId": 38,
+                    "codeName": "技术分享",
+                    "sequence": 500,
+                    "children": []
+                },
+                {
+                    "codeId": 59,
+                    "typeCode": "10001",
+                    "parentId": 38,
+                    "codeName": "湖南航空",
+                    "sequence": 600,
+                    "children": [
+                        {
+                            "codeId": 147,
+                            "typeCode": "10001",
+                            "parentId": 59,
+                            "codeName": "航空安保",
+                            "sequence": 0,
+                            "children": []
+                        },
+                        {
+                            "codeId": 148,
+                            "typeCode": "10001",
+                            "parentId": 59,
+                            "codeName": "运行标准",
+                            "sequence": 0,
+                            "children": []
+                        },
+                        {
+                            "codeId": 149,
+                            "typeCode": "10001",
+                            "parentId": 59,
+                            "codeName": "飞机维修",
+                            "sequence": 0,
+                            "children": []
+                        },
+                        {
+                            "codeId": 102,
+                            "typeCode": "10001",
+                            "parentId": 59,
+                            "codeName": "飞行理论",
+                            "sequence": 400,
+                            "children": []
+                        },
+                        {
+                            "codeId": 103,
+                            "typeCode": "10001",
+                            "parentId": 59,
+                            "codeName": "航空安全",
+                            "sequence": 400,
+                            "children": []
+                        },
+                        {
+                            "codeId": 104,
+                            "typeCode": "10001",
+                            "parentId": 59,
+                            "codeName": "航空通识",
+                            "sequence": 400,
+                            "children": []
+                        },
+                        {
+                            "codeId": 105,
+                            "typeCode": "10001",
+                            "parentId": 59,
+                            "codeName": "客舱服务",
+                            "sequence": 400,
+                            "children": []
+                        },
+                        {
+                            "codeId": 106,
+                            "typeCode": "10001",
+                            "parentId": 59,
+                            "codeName": "运行控制",
+                            "sequence": 400,
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "codeId": 40,
+            "typeCode": "10001",
+            "parentId": 0,
+            "codeName": "客户服务",
+            "sequence": 500,
+            "children": [
+                {
+                    "codeId": 42,
+                    "typeCode": "10001",
+                    "parentId": 40,
+                    "codeName": "基础客服",
+                    "sequence": 0,
+                    "children": [
+                        {
+                            "codeId": 109,
+                            "typeCode": "10001",
+                            "parentId": 42,
+                            "codeName": "基础知识",
+                            "sequence": 100,
+                            "children": []
+                        },
+                        {
+                            "codeId": 110,
+                            "typeCode": "10001",
+                            "parentId": 42,
+                            "codeName": "投诉处理",
+                            "sequence": 200,
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "codeId": 44,
+                    "typeCode": "10001",
+                    "parentId": 40,
+                    "codeName": "客服支持",
+                    "sequence": 100,
+                    "children": [
+                        {
+                            "codeId": 111,
+                            "typeCode": "10001",
+                            "parentId": 44,
+                            "codeName": "操作指南",
+                            "sequence": 100,
+                            "children": []
+                        },
+                        {
+                            "codeId": 112,
+                            "typeCode": "10001",
+                            "parentId": 44,
+                            "codeName": "客服分享",
+                            "sequence": 200,
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "codeId": 45,
+                    "typeCode": "10001",
+                    "parentId": 40,
+                    "codeName": "旅游服务",
+                    "sequence": 300,
+                    "children": []
+                },
+                {
+                    "codeId": 46,
+                    "typeCode": "10001",
+                    "parentId": 40,
+                    "codeName": "C线职业发展",
+                    "sequence": 400,
+                    "children": [
+                        {
+                            "codeId": 150,
+                            "typeCode": "10001",
+                            "parentId": 46,
+                            "codeName": "新人培养",
+                            "sequence": 0,
+                            "children": []
+                        },
+                        {
+                            "codeId": 151,
+                            "typeCode": "10001",
+                            "parentId": 46,
+                            "codeName": "大咖讲堂",
+                            "sequence": 0,
+                            "children": []
+                        },
+                        {
+                            "codeId": 152,
+                            "typeCode": "10001",
+                            "parentId": 46,
+                            "codeName": "攀登者计划",
+                            "sequence": 0,
+                            "children": []
+                        },
+                        {
+                            "codeId": 82,
+                            "typeCode": "10001",
+                            "parentId": 46,
+                            "codeName": "学习+",
+                            "sequence": 100,
+                            "children": [
+                                {
+                                    "codeId": 128,
+                                    "typeCode": "10001",
+                                    "parentId": 82,
+                                    "codeName": "六西格玛",
+                                    "sequence": 100,
+                                    "children": []
+                                },
+                                {
+                                    "codeId": 129,
+                                    "typeCode": "10001",
+                                    "parentId": 82,
+                                    "codeName": "训练营",
+                                    "sequence": 200,
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "codeId": 107,
+                            "typeCode": "10001",
+                            "parentId": 46,
+                            "codeName": "破茧计划",
+                            "sequence": 100,
+                            "children": []
+                        },
+                        {
+                            "codeId": 125,
+                            "typeCode": "10001",
+                            "parentId": 46,
+                            "codeName": "管理培养",
+                            "sequence": 100,
+                            "children": [
+                                {
+                                    "codeId": 126,
+                                    "typeCode": "10001",
+                                    "parentId": 125,
+                                    "codeName": "领航计划",
+                                    "sequence": 100,
+                                    "children": []
+                                },
+                                {
+                                    "codeId": 127,
+                                    "typeCode": "10001",
+                                    "parentId": 125,
+                                    "codeName": "启航计划",
+                                    "sequence": 200,
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "codeId": 83,
+                            "typeCode": "10001",
+                            "parentId": 46,
+                            "codeName": "专家培养",
+                            "sequence": 200,
+                            "children": [
+                                {
+                                    "codeId": 130,
+                                    "typeCode": "10001",
+                                    "parentId": 83,
+                                    "codeName": "骄阳计划",
+                                    "sequence": 100,
+                                    "children": []
+                                },
+                                {
+                                    "codeId": 131,
+                                    "typeCode": "10001",
+                                    "parentId": 83,
+                                    "codeName": "明月计划",
+                                    "sequence": 200,
+                                    "children": []
+                                },
+                                {
+                                    "codeId": 132,
+                                    "typeCode": "10001",
+                                    "parentId": 83,
+                                    "codeName": "星辰计划",
+                                    "sequence": 300,
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "codeId": 108,
+                            "typeCode": "10001",
+                            "parentId": 46,
+                            "codeName": "业务讲师培养",
+                            "sequence": 200,
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "codeId": 33,
+            "typeCode": "10001",
+            "parentId": 0,
+            "codeName": "领导力",
+            "sequence": 600,
+            "children": [
+                {
+                    "codeId": 34,
+                    "typeCode": "10001",
+                    "parentId": 33,
+                    "codeName": "培训专项",
+                    "sequence": 0,
+                    "children": [
+                        {
+                            "codeId": 98,
+                            "typeCode": "10001",
+                            "parentId": 34,
+                            "codeName": "雏龙计划",
+                            "sequence": 100,
+                            "children": []
+                        },
+                        {
+                            "codeId": 99,
+                            "typeCode": "10001",
+                            "parentId": 34,
+                            "codeName": "潜龙计划",
+                            "sequence": 200,
+                            "children": []
+                        },
+                        {
+                            "codeId": 100,
+                            "typeCode": "10001",
+                            "parentId": 34,
+                            "codeName": "腾龙计划",
+                            "sequence": 300,
+                            "children": []
+                        },
+                        {
+                            "codeId": 101,
+                            "typeCode": "10001",
+                            "parentId": 34,
+                            "codeName": "育龙计划",
+                            "sequence": 400,
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "codeId": 36,
+                    "typeCode": "10001",
+                    "parentId": 33,
+                    "codeName": "自我管理",
+                    "sequence": 100,
+                    "children": []
+                },
+                {
+                    "codeId": 37,
+                    "typeCode": "10001",
+                    "parentId": 33,
+                    "codeName": "团队管理",
+                    "sequence": 200,
+                    "children": []
+                },
+                {
+                    "codeId": 39,
+                    "typeCode": "10001",
+                    "parentId": 33,
+                    "codeName": "管理工具",
+                    "sequence": 400,
+                    "children": []
+                },
+                {
+                    "codeId": 41,
+                    "typeCode": "10001",
+                    "parentId": 33,
+                    "codeName": "解密领导力",
+                    "sequence": 500,
+                    "children": []
+                }
+            ]
+        },
+        {
+            "codeId": 27,
+            "typeCode": "10001",
+            "parentId": 0,
+            "codeName": "人力财务",
+            "sequence": 700,
+            "children": [
+                {
+                    "codeId": 29,
+                    "typeCode": "10001",
+                    "parentId": 27,
+                    "codeName": "财务法务",
+                    "sequence": 100,
+                    "children": [
+                        {
+                            "codeId": 118,
+                            "typeCode": "10001",
+                            "parentId": 29,
+                            "codeName": "财务核算",
+                            "sequence": 100,
+                            "children": []
+                        },
+                        {
+                            "codeId": 119,
+                            "typeCode": "10001",
+                            "parentId": 29,
+                            "codeName": "财务信息化",
+                            "sequence": 200,
+                            "children": []
+                        },
+                        {
+                            "codeId": 120,
+                            "typeCode": "10001",
+                            "parentId": 29,
+                            "codeName": "风险管理",
+                            "sequence": 300,
+                            "children": []
+                        },
+                        {
+                            "codeId": 121,
+                            "typeCode": "10001",
+                            "parentId": 29,
+                            "codeName": "数据分析",
+                            "sequence": 400,
+                            "children": []
+                        },
+                        {
+                            "codeId": 122,
+                            "typeCode": "10001",
+                            "parentId": 29,
+                            "codeName": "资金管理",
+                            "sequence": 500,
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "codeId": 30,
+                    "typeCode": "10001",
+                    "parentId": 27,
+                    "codeName": "行政管理",
+                    "sequence": 200,
+                    "children": []
+                },
+                {
+                    "codeId": 28,
+                    "typeCode": "10001",
+                    "parentId": 27,
+                    "codeName": "人力资源",
+                    "sequence": 705,
+                    "children": []
+                }
+            ]
+        }
+    ],
+    "success": true
+}
